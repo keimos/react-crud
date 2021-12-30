@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import DatePicker from 'react-bootstrap-date-picker'
+import DatePicker from "react-datepicker";
 import CertsDataService from "../services/certs.service";
 
 export default class AddCertificate extends Component {

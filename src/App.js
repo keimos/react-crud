@@ -1,7 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import AddCertificate from "./components/add-certs.component";
+import CertificateList from "./components/certs-list.components";
+import Certificate from "./components/certs.component";
+
 
 class App extends Component {
   render() {
@@ -21,36 +26,15 @@ class App extends Component {
           </nav>
 
           <div className="container mt-3">
-            <Switch>
-              <Route exact path={["/", "/certificates"]} component={CertificateList} />
-              <Route exact path="/add" component={AddCertificate} />
-              <Route path="/tutorials/:id" component={Certificate} />
-            </Switch>
+              <Router>
+                  <Route exact path={["/", "/certificates"]} component={CertificateList} />
+                  <Route exact path="/add" component={AddCertificate} />
+                  <Route path="/certificates/:id" component={Certificate} />
+              </Router>
           </div>
         </div>
     );
   }
-}
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
 }
 
 export default App;
